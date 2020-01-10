@@ -1,0 +1,46 @@
+#include <OrangutanMotors.h>
+#include <Pololu3pi.h>
+#include <PololuQTRSensors.h>
+// these are the three libraries
+Pololu3pi robot;
+//class
+unsigned int sensors[5];
+//sensors
+OrangutanMotors motors;
+void setup() {
+  // put your setup code here, to run once:
+  robot.init(2000);
+
+  long currentTimeMillis = millis();
+  
+  //create a counter for mills
+  while (millis() - currentTimeMillis < 10000) {
+    //counting
+    robot.calibrateLineSensors(IR_EMITTERS_ON);
+    motors.setSpeeds(-40,40);
+    //this is callibration part of the code
+  }
+  
+}
+void loop() {
+  // put your main code here, to run repeatedly:  
+
+  //this vairable gets the position of the robot
+  unsigned int position = robot.readLine(sensors, IR_EMITTERS_ON);
+
+  //create variables for speed, the right border, and the left border
+		
+  //create a conditional statement to check if it
+  //is too far to the right of the line
+  //make it turn left if condition is true
+  //code below
+  
+  //create another condition to check if it
+  //is somewhat centered on the line
+  //make it go straight if condition is true
+  //code below
+
+  //otherwise, turn to the left
+  //code below
+
+}
